@@ -2,11 +2,16 @@
 SELECT *
 FROM survey
 LIMIT 10;
+
 2
-SELECT question, COUNT(user_id)
- FROM survey
- WHERE response IS NOT NULL
- GROUP BY question;
+/*Returns funnel metrics for quiz*/
+SELECT question, 
+  COUNT(user_id) AS ‘User Ids’,
+  COUNT(response) AS ‘Responses’
+FROM survey
+WHERE response IS NOT NULL
+GROUP BY question;
+
 3
 Presentation only
 
